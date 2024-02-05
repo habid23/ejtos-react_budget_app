@@ -1,11 +1,13 @@
 import React, {useContext, useState} from 'react';
 import { AppContext } from '../context/AppContext';
+import Currency from './Currency';
 //import App from '../App';
 
 const AllocationForm = (props) => {
     const {dispatch,remaining } = useContext(AppContext);
     const [name, setName] = useState('');
     const[cost, setCost] = useState('');
+    const[currency] = useState('');
     const[action, setAction] = useState('');
 
     const submitEvent = () =>{
@@ -18,6 +20,7 @@ const AllocationForm = (props) => {
         const expense = {
             name:name,
             cost:parseInt(cost),
+            currency:currency,
         };
         if(action === "Reduce"){
             dispatch({
@@ -54,6 +57,9 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
+                    <div className="input-group-prepend">
+                        <label className="input-group-text" htmlFor="cost">{currency}</label>
+                    </div>
                     <input
                         required='required'
                         type='number'

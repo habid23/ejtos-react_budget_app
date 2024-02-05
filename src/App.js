@@ -9,8 +9,9 @@ import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 // Add code to import the other components here under
 import { AppProvider } from './context/AppContext';
-import ExpenseItem from './components/ExpenseItem';
+import Currency from './components/Currency';
 import AllocationForm from './components/AllocationForm';
+
 const App = () => {
     return (
         <AppProvider>
@@ -37,8 +38,16 @@ const App = () => {
                             <div className='col-sm'>
                                 <ExpenseTotal />
                             </div>
-                        }        
-                       
+                        }
+                        {
+                            /* Add Currency component here */
+                            <div className='col-sm'>
+                                <Currency />
+                            </div>
+                        }      
+                    </div>
+                    <h2 className='mt-3'>Allocation</h2>
+                    <div className='row mt-3'>
                         {
                             /* Add ExpenseList component here */
                             <div className='col-sm'>
@@ -46,21 +55,18 @@ const App = () => {
                             </div>
                         }         
 
-                        {
-                            /* Add ExpenseItem component here */
-                            <div className='col-sm'>
-                                <ExpenseItem />
-                            </div>
-                        }        
-
+                        
+                    </div>    
+                    <h2 className='mt-3'>Change Allocation</h2>           
+                    <div className='row mt-3'>
                         {
                             /* Add AllocationForm component here under */
                             <div className='col-sm'>
                                 <AllocationForm />
                             </div>
-                        }        
-
-                </div>
+                        }  
+                    </div>    
+                
             </div>
         </AppProvider>
     );
